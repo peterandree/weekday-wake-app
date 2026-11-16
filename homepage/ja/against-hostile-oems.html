@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>アラームの信頼性 — Workday Wake</title>
-<meta name="description" content="Workday Wake が Xiaomi、Samsung、Huawei など積極的なバッテリー管理の Android 端末でもアラームを鳴らし続ける仕組みと、お使いの端末で確認できること。">
+<title>アラームの信頼性 — Weekday Wake</title>
+<meta name="description" content="Weekday Wake が Xiaomi、Samsung、Huawei など積極的なバッテリー管理の Android 端末でもアラームを鳴らし続ける仕組みと、お使いの端末で確認できること。">
 <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="../css/against-hostile-oems.css">
 <script src="../js/lang.js" defer></script>
@@ -14,7 +14,7 @@
 
 
 <h1>アラームの信頼性</h1>
-<p class="sub">Workday Wake が Xiaomi、Samsung、Huawei など積極的なバッテリー管理の
+<p class="sub">Weekday Wake が Xiaomi、Samsung、Huawei など積極的なバッテリー管理の
   端末でも鳴り続けるよう設計されている仕組み &mdash; と、お使いの端末で確認できることを解説します。</p>
 
 <nav class="toc" aria-label="このガイドの内容">
@@ -37,7 +37,7 @@
   <em>何かが取り消されたことをアプリに知らせる仕組みすらない</em>のです。</p>
 <div class="box">
   本質的な問題はこの非対称性です: アラームは消えたのに、アプリは察知できない。
-  Workday Wake がこれに対して行うことはすべて、一つの問いを軸に設計されています:
+  Weekday Wake がこれに対して行うことはすべて、一つの問いを軸に設計されています:
   <strong>ある仕組みが消されたとき、どの別の仕組みがそれに気づくのか？</strong>
 </div>
 <p>このページは、そのエンジニアリングの物語を一般向けに読みやすくした版です。こうした端末が
@@ -59,7 +59,7 @@
 </table>
 
 <h2 id="layers">重ねてきた防御層</h2>
-<p>上記のどの UI も 1 つの仕組みではカバーできないため、Workday Wake は独立した
+<p>上記のどの UI も 1 つの仕組みではカバーできないため、Weekday Wake は独立した
   層を重ねています。それぞれの層は、前の層がすでに破壊されている可能性を想定しています:</p>
 <div class="layers">
   <div class="layer"><b>予防</b><span>目覚ましアラームは
@@ -151,7 +151,7 @@
 <h3 id="per-brand">メーカー別の設定手順（アプリ内ガイドより）</h3>
 <p>アプリには対象端末向けの内蔵ガイド（設定 &gt; 信頼性）があり、メーカーごとの
   正確な手順を収録しています。主要なものを簡潔に &mdash; 設定内でアプリ名が出る箇所は
-  &ldquo;Workday Wake&rdquo; をランチャー内のアプリ名に置き換えてください:</p>
+  &ldquo;Weekday Wake&rdquo; をランチャー内のアプリ名に置き換えてください:</p>
 <table>
   <tr><th>ブランド / UI</th><th>手順（アプリの端末バッテリーガイドと同じ）</th></tr>
   <tr><td>Xiaomi / MIUI, HyperOS</td><td><b>Autostart</b> を許可；高度な権限で「ロック画面に表示」と
@@ -159,14 +159,14 @@
     「制限なし」に；最近使ったアプリでロック（下スワイプまたは錠前）。</td></tr>
   <tr><td>Samsung / One UI</td><td>設定 &gt; バッテリーとデバイスケア &gt; バッテリー &gt; バックグラウンド
     使用制限：「スリープ状態のアプリ」「深いスリープ状態のアプリ」から削除し
-    「スリープ状態にしないアプリ」へ追加；設定 &gt; アプリ &gt; Workday Wake &gt; バッテリー &gt; 制限なし。
+    「スリープ状態にしないアプリ」へ追加；設定 &gt; アプリ &gt; Weekday Wake &gt; バッテリー &gt; 制限なし。
     「未使用アプリをスリープ状態にする」がオフになっているか確認 &mdash; 数日未使用のアプリの
     アラームを抑圧することがあります。</td></tr>
   <tr><td>Huawei / EMUI, HarmonyOS</td><td>設定 &gt; バッテリー &gt; アプリ起動：「手動で管理」にし、
     自動起動・二次起動・バックグラウンド実行を許可；バッテリー最適化：「許可しない」。</td></tr>
   <tr><td>OnePlus / Oppo / Realme (ColorOS)</td><td>バッテリー最適化：「未最適化」；アプリ情報 &gt;
     バッテリー：「バックグラウンド アクティビティを許可」／「制限なし」；起動マネージャーで
-    自動起動を許可；DuraSpeed の監視リストから Workday Wake を外す。</td></tr>
+    自動起動を許可；DuraSpeed の監視リストから Weekday Wake を外す。</td></tr>
   <tr><td>Vivo / iQOO</td><td>権限マネージャーで自動起動を許可；バッテリー最適化を無効化；
     バックグラウンド アクティビティを許可し、最近使ったアプリでロック。</td></tr>
   <tr><td>Sony</td><td>設定 &gt; バッテリー &gt; STAMINA モード：「オフ」&mdash; または追加制限の
@@ -178,7 +178,7 @@
   すべての手順はアプリ内に恒久的な文字列リソースとして存在します；ハードコードや
   ブランド固有の分岐はありません。</p>
 <div class="box">
-  <strong>ほぼすべての UI で効くプロの小技:</strong> 最近使ったアプリを開き、Workday Wake を
+  <strong>ほぼすべての UI で効くプロの小技:</strong> 最近使ったアプリを開き、Weekday Wake を
   <b>ロック</b>してください（錠前アイコン）。この一手でスワイプによる強制終了と
   メモリクリーナーによる損失の大半を防げ、スキップをタップした後に更新が止まる
   ウィジェットも直ります。
@@ -250,17 +250,17 @@
 </ul>
 
 <h2 id="closing">まとめ</h2>
-<p>目覚まし時計の仕事は一つです。Workday Wake は最初から、その仕事の最も過酷な形を想定して
+<p>目覚まし時計の仕事は一つです。Weekday Wake は最初から、その仕事の最も過酷な形を想定して
   設計されています: プロセスの死をかいくぐるスケジューリング、消されたものの再設定、
   必要な場合の第二プロセスによる自己監視、そして問題が起きたときの端末内での正直な報告。
   そしてプライバシーの線は絶対です &mdash; その正直さがデータを犠牲にすることはありません。</p>
 <p>このガイドが当てはまらない端末を見つけましたか？
-  <a href="https://github.com/peterandree/workday-wake-app/issues">issue を立て</a>て、
+  <a href="https://github.com/peterandree/weekday-wake-app/issues">issue を立て</a>て、
   可能であれば任意の共有アクション経由で端末の診断を添えてください。このフィードバックの
   環は、エミュレーターでは代替できない唯一つのものです。</p>
 
 <footer>
-  Workday Wake &mdash; あなたの勤務スケジュールを理解するスマートアラーム。関連ページ:
+  Weekday Wake &mdash; あなたの勤務スケジュールを理解するスマートアラーム。関連ページ:
   <a href="index.html">ホーム</a> · <a href="privacy.html">プライバシーポリシー</a> ·
   <a href="support.html">支援する</a> · <a href="impressum.html" hreflang="de">Impressum</a>
 </footer>

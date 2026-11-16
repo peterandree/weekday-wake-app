@@ -5,10 +5,10 @@ import os
 from PIL import Image
 import resvg_py
 
-SVG = "C:/Software/mine/Workday_Wake/resources/workday-wake.svg"
+SVG = "C:/Software/mine/Weekday_Wake/resources/weekday-wake.svg"
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if not os.path.exists(SVG):
-    SVG = os.path.join(BASE, "workday-wake.svg")
+    SVG = os.path.join(BASE, "weekday-wake.svg")
 
 with open(SVG, "rb") as f:
     svg_bytes = f.read()
@@ -35,4 +35,4 @@ for s in (16, 32, 48):
     os.remove(os.path.join(BASE, f"fav{s}.png"))
 
 rasterize(640, os.path.join(BASE, "_logo640.png"))
-print("favicon.ico + apple-touch-icon.png built from workday-wake.svg via resvg")
+print("favicon.ico + apple-touch-icon.png built from weekday-wake.svg via resvg")

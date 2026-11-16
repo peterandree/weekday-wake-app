@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Wecker-Zuverlässigkeit — Workday Wake</title>
-<meta name="description" content="Wie Workday Wake auf Xiaomi, Samsung, Huawei und anderen Android-Geräten mit aggressivem Akku-Management das Klingeln hält &mdash; und was du auf deinem Gerät prüfen kannst.">
+<title>Wecker-Zuverlässigkeit — Weekday Wake</title>
+<meta name="description" content="Wie Weekday Wake auf Xiaomi, Samsung, Huawei und anderen Android-Geräten mit aggressivem Akku-Management das Klingeln hält &mdash; und was du auf deinem Gerät prüfen kannst.">
 <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="../css/against-hostile-oems.css">
 <script src="../js/lang.js" defer></script>
@@ -14,7 +14,7 @@
 
 
 <h1>Alarmzuverlässigkeit</h1>
-<p class="sub">Wie Workday Wake konstruiert ist, um auf Xiaomi, Samsung, Huawei und anderen
+<p class="sub">Wie Weekday Wake konstruiert ist, um auf Xiaomi, Samsung, Huawei und anderen
   Geräten mit aggressivem Akku-Management weiterzuklingeln &mdash; und was du auf deinem Telefon prüfen kannst.</p>
 
 <nav class="toc" aria-label="In this guide">
@@ -38,7 +38,7 @@ beenden, geplante Wecker stillschweigend verwerfen oder der App den Neustart ver
 storniert wurde</em>.</p>
 <div class="box">
   Das eigentliche Problem ist diese Asymmetrie: Dein Wecker ist weg, aber die App erfährt
-  es nie. Was Workday Wake dagegen tut, baut auf einer Frage auf:
+  es nie. Was Weekday Wake dagegen tut, baut auf einer Frage auf:
   <strong>Wenn ein Mechanismus ausgelöscht wird, welchem anderen Mechanismus fällt das auf?</strong>
 </div>
 <p>Diese Seite ist die öffentliche, lesbare Fassung dieser Entwicklungs-Geschichte. Sie erklärt,
@@ -61,7 +61,7 @@ storniert wurde</em>.</p>
 </table>
 
 <h2 id="layers">Die Schichten, die wir stapeln</h2>
-<p>Kein einzelner Mechanismus deckt jede der Oberflächen oben ab, deshalb stapelt Workday Wake
+<p>Kein einzelner Mechanismus deckt jede der Oberflächen oben ab, deshalb stapelt Weekday Wake
   unabhängige Schichten. Jede geht davon aus, dass die vorige bereits zerstört sein kann:</p>
 <div class="layers">
   <div class="layer"><b>Vorbeugen</b><span>Deine Wecker werden mit
@@ -154,14 +154,14 @@ storniert wurde</em>.</p>
 <h3 id="per-brand">Einrichtungsschritte je Marke (aus der eigenen Anleitung der App)</h3>
 <p>Die App liefert eine eingebaute Anleitung mit (Einstellungen &gt; Zuverlässigkeit auf
   betroffenen Geräten) mit den genauen Schritten je Hersteller. Die wichtigsten in Kurzform
-  &mdash; ersetze „Workday Wake“ durch den App-Namen in deinem Launcher, wo die Einstellung ihn nennt:</p>
+  &mdash; ersetze „Weekday Wake“ durch den App-Namen in deinem Launcher, wo die Einstellung ihn nennt:</p>
 <table>
   <tr><th>Marke / Oberfläche</th><th>Schritte (wie im Akku-Guide für dein Gerät der App)</th></tr>
   <tr><td>Xiaomi / MIUI, HyperOS</td><td><b>Autostart</b> erlauben; in benutzerdefinierten Berechtigungen „Sperrbildschirm anzeigen“ und
     „Hintergrund-Pop-ups anzeigen“ einschalten; Akkusparmodus der App auf „Uneingeschränkt“ stellen; App in den letzten Apps fixieren (nach unten wischen oder Schloss).
     
     
-  <tr><td>Samsung / One UI</td><td>Einstellungen &gt; Akku und Gerätepflege &gt; Akku &gt; Hintergrundnutzungslimits: aus „Schlafende Apps“ und „Tiefschlafende Apps“ entfernen, zu „Apps, die nie schlafen“ hinzufügen; Einstellungen &gt; Apps &gt; Workday Wake &gt; Akku &gt; Uneingeschränkt. Außerdem sicherstellen, dass „Unbenutzte Apps in den Ruhezustand versetzen“ aus ist &mdash; es kann Wecker für tagelang unbenutzte Apps unterdrücken.
+  <tr><td>Samsung / One UI</td><td>Einstellungen &gt; Akku und Gerätepflege &gt; Akku &gt; Hintergrundnutzungslimits: aus „Schlafende Apps“ und „Tiefschlafende Apps“ entfernen, zu „Apps, die nie schlafen“ hinzufügen; Einstellungen &gt; Apps &gt; Weekday Wake &gt; Akku &gt; Uneingeschränkt. Außerdem sicherstellen, dass „Unbenutzte Apps in den Ruhezustand versetzen“ aus ist &mdash; es kann Wecker für tagelang unbenutzte Apps unterdrücken.
     
     
     
@@ -169,7 +169,7 @@ storniert wurde</em>.</p>
   <tr><td>Huawei / EMUI, HarmonyOS</td><td>Einstellungen &gt; Akku &gt; App-Start: „Manuell verwalten“ setzen und Autostart, Sekundärstart und Hintergrundbetrieb einschalten; Akkuoptimierung: „Nicht zulassen“.
     
     
-  <tr><td>OnePlus / Oppo / Realme (ColorOS)</td><td>Akkuoptimierung: „Nicht optimiert“; App-Info &gt; Akku: „Hintergrundaktivität erlauben“/„Uneingeschränkt“; im Startmanager Autostart erlauben; in DuraSpeed Workday Wake aus der überwachten Liste entfernen.
+  <tr><td>OnePlus / Oppo / Realme (ColorOS)</td><td>Akkuoptimierung: „Nicht optimiert“; App-Info &gt; Akku: „Hintergrundaktivität erlauben“/„Uneingeschränkt“; im Startmanager Autostart erlauben; in DuraSpeed Weekday Wake aus der überwachten Liste entfernen.
     
     
   <tr><td>Vivo / iQOO</td><td>Im Berechtigungsmanager Autostart erlauben; Akkuoptimierung ausschalten; Hintergrundaktivität erlauben und in den letzten Apps fixieren.
@@ -184,7 +184,7 @@ storniert wurde</em>.</p>
   keine davon ist hartkodiert oder ein markenspezifischer Fork.</p>
 <div class="box">
   <strong>Profi-Tipp, der auf fast jeder Oberfläche funktioniert:</strong> öffne Zuletzt verwendete Apps und
-  <b>fixiere</b> Workday Wake (Schloss-Symbol). Dieser einzige Schritt verhindert die meisten Verluste durch Wisch-Beenden und
+  <b>fixiere</b> Weekday Wake (Schloss-Symbol). Dieser einzige Schritt verhindert die meisten Verluste durch Wisch-Beenden und
   Speicher-Cleaner &mdash; und behebt auch Widgets, die nach dem Tippen auf Überspringen aufhören, sich zu aktualisieren.
 </div>
 
@@ -258,18 +258,18 @@ storniert wurde</em>.</p>
 </ul>
 
 <h2 id="closing">Schlusswort</h2>
-<p>Ein Wecker hat eine Aufgabe. Workday Wake wurde von Anfang an um die härtesten
+<p>Ein Wecker hat eine Aufgabe. Weekday Wake wurde von Anfang an um die härtesten
   Versionen dieser Aufgabe herum gebaut: Es plant so, dass Prozess-Tod überlebt wird,
   es legt neu an, was ausgelöscht wird, es überwacht sich selbst mit einem zweiten Prozess,
   wo nötig, und es berichtet ehrlich auf dem Gerät, wenn etwas schiefging. Und die
   Datenschutz-Linie ist absolut &mdash; keine dieser Ehrlichkeit kostet dich deine Daten.</p>
 <p>Ein Gerät gefunden, auf dem der Leitfaden nicht gilt? Bitte
-  <a href="https://github.com/peterandree/workday-wake-app/issues">öffne ein Issue</a> und
+  <a href="https://github.com/peterandree/weekday-wake-app/issues">öffne ein Issue</a> und
   hänge, wenn möglich, die Diagnose vom Gerät über die freiwillige Teilen-Aktion an. Diese
   Rückkopplung ist das Eine, was ein Emulator nicht ersetzen kann.</p>
 
 <footer>
-  Workday Wake &mdash; der clevere Wecker, der deinen Arbeitszeitplan kennt. Begleitseiten:
+  Weekday Wake &mdash; der clevere Wecker, der deinen Arbeitszeitplan kennt. Begleitseiten:
   <a href="index.html">die Startseite</a> · <a href="privacy.html">Datenschutzerklärung</a> ·
   <a href="support.html">Support</a> · <a href="impressum.html" hreflang="de">Impressum</a>
 </footer>

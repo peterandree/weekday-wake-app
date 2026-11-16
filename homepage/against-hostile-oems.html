@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Alarm Reliability — Workday Wake</title>
-<meta name="description" content="How Workday Wake keeps alarms ringing on Xiaomi, Samsung, Huawei and other Android devices with aggressive battery management — and what to check on your device.">
+<title>Alarm Reliability — Weekday Wake</title>
+<meta name="description" content="How Weekday Wake keeps alarms ringing on Xiaomi, Samsung, Huawei and other Android devices with aggressive battery management — and what to check on your device.">
 <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="css/against-hostile-oems.css">
-<link rel="alternate" hreflang="en" href="https://peterandree.github.io/workday-wake-app/against-hostile-oems.html">
-<link rel="alternate" hreflang="de" href="https://peterandree.github.io/workday-wake-app/de/against-hostile-oems.html">
-<link rel="alternate" hreflang="zh-Hans" href="https://peterandree.github.io/workday-wake-app/zh-hans/against-hostile-oems.html">
-<link rel="alternate" hreflang="es-419" href="https://peterandree.github.io/workday-wake-app/es-419/against-hostile-oems.html">
-<link rel="alternate" hreflang="fr" href="https://peterandree.github.io/workday-wake-app/fr/against-hostile-oems.html">
-<link rel="alternate" hreflang="pt-BR" href="https://peterandree.github.io/workday-wake-app/pt-br/against-hostile-oems.html">
-<link rel="alternate" hreflang="ja" href="https://peterandree.github.io/workday-wake-app/ja/against-hostile-oems.html">
-<link rel="alternate" hreflang="x-default" href="https://peterandree.github.io/workday-wake-app/against-hostile-oems.html">
+<link rel="alternate" hreflang="en" href="https://peterandree.github.io/weekday-wake-app/against-hostile-oems.html">
+<link rel="alternate" hreflang="de" href="https://peterandree.github.io/weekday-wake-app/de/against-hostile-oems.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://peterandree.github.io/weekday-wake-app/zh-hans/against-hostile-oems.html">
+<link rel="alternate" hreflang="es-419" href="https://peterandree.github.io/weekday-wake-app/es-419/against-hostile-oems.html">
+<link rel="alternate" hreflang="fr" href="https://peterandree.github.io/weekday-wake-app/fr/against-hostile-oems.html">
+<link rel="alternate" hreflang="pt-BR" href="https://peterandree.github.io/weekday-wake-app/pt-br/against-hostile-oems.html">
+<link rel="alternate" hreflang="ja" href="https://peterandree.github.io/weekday-wake-app/ja/against-hostile-oems.html">
+<link rel="alternate" hreflang="x-default" href="https://peterandree.github.io/weekday-wake-app/against-hostile-oems.html">
 <script src="js/lang.js" defer></script>
 </head>
 <body>
@@ -22,7 +22,7 @@
 
 
 <h1>Alarm Reliability</h1>
-<p class="sub">How Workday Wake is engineered to keep ringing on Xiaomi, Samsung, Huawei and
+<p class="sub">How Weekday Wake is engineered to keep ringing on Xiaomi, Samsung, Huawei and
   other devices with aggressive battery management &mdash; and what you can check on your phone.</p>
 
 <nav class="toc" aria-label="In this guide">
@@ -45,7 +45,7 @@
   <em>without any notification to the app that something was cancelled</em>.</p>
 <div class="box">
   The defining problem is that asymmetry: your alarm is gone, but the app is never told.
-  Everything Workday Wake does about this is built around one question:
+  Everything Weekday Wake does about this is built around one question:
   <strong>if one mechanism gets wiped, which other mechanism notices?</strong>
 </div>
 <p>This page is the public, readable version of that engineering story. It explains what
@@ -68,7 +68,7 @@
 </table>
 
 <h2 id="layers">The layers we stack</h2>
-<p>No single mechanism covers every skin above, so Workday Wake stacks independent
+<p>No single mechanism covers every skin above, so Weekday Wake stacks independent
   layers. Each one assumes the previous layer may already have been destroyed:</p>
 <div class="layers">
   <div class="layer"><b>Prevent</b><span>Your wake alarms are scheduled with
@@ -161,7 +161,7 @@
 <h3 id="per-brand">Per-brand setup steps (from the app's own guidance)</h3>
 <p>The app ships built-in guidance (Settings &gt; Reliability on affected devices) with
   the exact steps per manufacturer. The relevant ones in short form &mdash; replace
-  &ldquo;Workday Wake&rdquo; with the app name in your launcher wherever the setting names it:</p>
+  &ldquo;Weekday Wake&rdquo; with the app name in your launcher wherever the setting names it:</p>
 <table>
   <tr><th>Brand / skin</th><th>Steps (as in the app's Device Battery Guide)</th></tr>
   <tr><td>Xiaomi / MIUI, HyperOS</td><td>Allow <b>Autostart</b>; in custom permissions enable
@@ -170,7 +170,7 @@
     or padlock).</td></tr>
   <tr><td>Samsung / One UI</td><td>Settings &gt; Battery and device care &gt; Battery &gt; Background
     usage limits: remove from &ldquo;Sleeping apps&rdquo; and &ldquo;Deep sleeping apps&rdquo;, add to
-    &ldquo;Never sleeping apps&rdquo;; Settings &gt; Apps &gt; Workday Wake &gt; Battery &gt; Unrestricted.
+    &ldquo;Never sleeping apps&rdquo;; Settings &gt; Apps &gt; Weekday Wake &gt; Battery &gt; Unrestricted.
     Also ensure &ldquo;Put unused apps to sleep&rdquo; is off &mdash; it can suppress alarms for apps
     unused for days.</td></tr>
   <tr><td>Huawei / EMUI, HarmonyOS</td><td>Settings &gt; Battery &gt; App launch: set
@@ -178,7 +178,7 @@
     Battery optimization: &ldquo;Don't allow&rdquo; (opt out).</td></tr>
   <tr><td>OnePlus / Oppo / Realme (ColorOS)</td><td>Battery optimization: &ldquo;Not optimized&rdquo;;
     App info &gt; Battery: &ldquo;Allow background activity&rdquo;/&ldquo;Unrestricted&rdquo;; in the startup
-    manager allow auto-start; in DuraSpeed remove Workday Wake from the monitored list.</td></tr>
+    manager allow auto-start; in DuraSpeed remove Weekday Wake from the monitored list.</td></tr>
   <tr><td>Vivo / iQOO</td><td>In the permissions manager allow auto-start; disable battery
     optimization; allow background activity and lock in recent apps.</td></tr>
   <tr><td>Sony</td><td>Settings &gt; Battery &gt; STAMINA mode: &ldquo;Off&rdquo; &mdash; or turn off its
@@ -191,7 +191,7 @@
   are hard-coded or brand-specific forks.</p>
 <div class="box">
   <strong>Pro tip that works on nearly every skin:</strong> open Recent Apps and
-  <b>lock</b> Workday Wake (padlock icon). This single step prevents most swipe-kill and
+  <b>lock</b> Weekday Wake (padlock icon). This single step prevents most swipe-kill and
   memory-cleaner losses, and also fixes widgets that stop updating after you tap Skip.
 </div>
 
@@ -265,18 +265,18 @@
 </ul>
 
 <h2 id="closing">Closing</h2>
-<p>An alarm clock has one job. Workday Wake was engineered from the start around the
+<p>An alarm clock has one job. Weekday Wake was engineered from the start around the
   hardest versions of that job: it schedules in a way that survives process
   death, it re-arms what gets wiped, it supervises itself with a second process where
   needed, and it reports honestly on-device when something went wrong. And the privacy
   line is absolute &mdash; none of that honesty costs you your data.</p>
 <p>Found a device where the guide does not hold? Please
-  <a href="https://github.com/peterandree/workday-wake-app/issues">open an issue</a> and,
+  <a href="https://github.com/peterandree/weekday-wake-app/issues">open an issue</a> and,
   if you can, attach the on-device diagnostics via the voluntary share action. That
   feedback loop is the one thing an emulator cannot substitute.</p>
 
 <footer>
-  Workday Wake &mdash; the smart alarm that knows your work schedule. Companion pages:
+  Weekday Wake &mdash; the smart alarm that knows your work schedule. Companion pages:
   <a href="index.html">the homepage</a> · <a href="privacy.html">privacy policy</a> ·
   <a href="support.html">support</a> · <a href="impressum.html" hreflang="de">Impressum</a>
 </footer>

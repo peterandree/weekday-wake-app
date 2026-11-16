@@ -5,6 +5,7 @@ on:
     branches: ["main"]
     paths:
       - 'homepage/**' # Only redeploy if the homepage files change
+  workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
