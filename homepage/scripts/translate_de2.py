@@ -87,8 +87,8 @@ privacy_pairs = [
 ("<h2>Contact</h2>", "<h2>Kontakt</h2>"),
 ("Questions about this policy can be raised as an issue on the project's\n<a href=\"https://github.com/peterandree/weekday-wake-app/issues\">public issue\ntracker</a>.",
  "Fragen zu dieser Erklärung kannst du als Issue im\n<a href=\"https://github.com/peterandree/weekday-wake-app/issues\">öffentlichen\nIssue-Tracker</a> des Projekts stellen."),
-("Weekday Wake is open source. This policy describes the shipped application; it is not a\n  legal document and does not create rights beyond those the law already gives you.",
- "Weekday Wake ist Open Source. Diese Erklärung beschreibt die ausgelieferte App; sie ist\n  kein Rechtsdokument und begründet keine Rechte über die hinaus, die das Gesetz ohnehin\n  gibt."),
+("Weekday Wake is proprietary, closed-source software. This policy describes the shipped application; it is not a\n  legal document and does not create rights beyond those the law already gives you.",
+ "Weekday Wake ist proprietäre Closed-Source-Software. Diese Erklärung beschreibt die ausgelieferte App; sie ist\n  kein Rechtsdokument und begründet keine Rechte über die hinaus, die das Gesetz ohnehin\n  gibt."),
 ]
 
 # ---------------- support.html ----------------
@@ -335,7 +335,7 @@ imp_pairs = [
  "TODO: wie oben, oder die namentlich genannte Person, die für redaktionelle Inhalte verantwortlich ist"),
 ("Weekday Wake website — see also the", "Weekday-Wake-Website &ndash; siehe auch die"),
 ('<a href="privacy.html">privacy policy</a>.', '<a href="../de/privacy.html">Datenschutzerklärung</a>.'),
-("The app itself is open source:", "Die App selbst ist Open Source:"),
+("The app is proprietary and closed source; this repository holds its documentation and issue tracker:", "Die App ist proprietär und Closed Source; dieses Repository enthält ihre Dokumentation und den Issue-Tracker:"),
 ('<a href="https://github.com/peterandree/weekday-wake-app">github.com/peterandree/weekday-wake-app</a>.',
  '<a href="https://github.com/peterandree/weekday-wake-app">github.com/peterandree/weekday-wake-app</a>.'),
 ]
