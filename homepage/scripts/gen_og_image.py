@@ -1,4 +1,4 @@
-# Generate og-image.png (1200x630) for the Workday Wake homepage, embedding
+# Generate og-image.png (1200x630) for the Weekday Wake homepage, embedding
 # the real project logo SVG (rasterized via resvg) plus the site wordmark.
 # Requires: pip install resvg-py pillow
 import io
@@ -22,9 +22,9 @@ d = ImageDraw.Draw(img)
 d.rounded_rectangle([24, 24, W - 24, H - 24], radius=48, outline=FRAME, width=3)
 
 # --- Real logo (left side), soft accent glow behind it ---
-svg_path = "C:/Software/mine/Workday_Wake/resources/workday-wake.svg"
+svg_path = "C:/Software/mine/Weekday_Wake/resources/weekday-wake.svg"
 if not os.path.exists(svg_path):
-    svg_path = os.path.join(BASE, "workday-wake.svg")
+    svg_path = os.path.join(BASE, "weekday-wake.svg")
 with open(svg_path, "rb") as f:
     png = resvg_py.svg_to_bytes(svg_string=f.read().decode("utf-8"), width=440, height=440)
 logo = Image.open(io.BytesIO(bytes(png))).convert("RGBA")
@@ -45,7 +45,7 @@ except OSError:
     font_big = font_med = font_small = ImageFont.load_default()
 
 tx = 610
-d.text((tx, 215), "Workday Wake", font=font_big, fill=CLOCK)
+d.text((tx, 215), "Weekday Wake", font=font_big, fill=CLOCK)
 d.text((tx + 4, 350), "The smart alarm that knows", font=font_med, fill=MUTED)
 d.text((tx + 4, 396), "your work schedule", font=font_med, fill=MUTED)
 d.text((tx + 4, 520), "free - no ads - no analytics - no location permission", font=font_small, fill=ACCENT)

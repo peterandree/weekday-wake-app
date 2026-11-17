@@ -1,4 +1,4 @@
-/* Workday Wake — language negotiation.
+/* Weekday Wake — language negotiation.
  * First visit only: redirect to the best language for the browser, with
  * English as fallback. A choice made here or via the language switch is
  * remembered; returning visitors are never redirected away from the page

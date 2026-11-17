@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Confiabilidade dos alarmes — Workday Wake</title>
-<meta name="description" content="Como o Workday Wake mantém os alarmes tocando em Xiaomi, Samsung, Huawei e outros aparelhos Android com gerenciamento de bateria agressivo — e o que verificar no seu aparelho.">
+<title>Confiabilidade dos alarmes — Weekday Wake</title>
+<meta name="description" content="Como o Weekday Wake mantém os alarmes tocando em Xiaomi, Samsung, Huawei e outros aparelhos Android com gerenciamento de bateria agressivo — e o que verificar no seu aparelho.">
 <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="../css/against-hostile-oems.css">
 <script src="../js/lang.js" defer></script>
@@ -14,7 +14,7 @@
 
 
 <h1>Confiabilidade dos alarmes</h1>
-<p class="sub">Como o Workday Wake é construído para continuar tocando em Xiaomi, Samsung, Huawei e
+<p class="sub">Como o Weekday Wake é construído para continuar tocando em Xiaomi, Samsung, Huawei e
   outros aparelhos com gerenciamento de bateria agressivo &mdash; e o que você pode verificar no seu telefone.</p>
 
 <nav class="toc" aria-label="Neste guia">
@@ -37,7 +37,7 @@
   <em>sem qualquer aviso ao app de que algo foi cancelado</em>.</p>
 <div class="box">
   O problema central é essa assimetria: seu alarme sumiu, mas o app nunca fica sabendo.
-  Tudo o que o Workday Wake faz sobre isso gira em torno de uma pergunta:
+  Tudo o que o Weekday Wake faz sobre isso gira em torno de uma pergunta:
   <strong>se um mecanismo é apagado, qual outro mecanismo percebe?</strong>
 </div>
 <p>Esta página é a versão pública e legível dessa história de engenharia. Explica o que
@@ -60,7 +60,7 @@
 </table>
 
 <h2 id="layers">As camadas que empilhamos</h2>
-<p>Nenhum mecanismo único cobre todas as interfaces acima, então o Workday Wake empilha
+<p>Nenhum mecanismo único cobre todas as interfaces acima, então o Weekday Wake empilha
   camadas independentes. Cada uma assume que a camada anterior já pode ter sido destruída:</p>
 <div class="layers">
   <div class="layer"><b>Prevenir</b><span>Seus alarmes são agendados com
@@ -153,7 +153,7 @@
 <h3 id="per-brand">Passos por marca (da orientação do próprio app)</h3>
 <p>O app traz orientação embutida (Configurações &gt; Confiabilidade nos aparelhos afetados) com
   os passos exatos por fabricante. Os relevantes, em resumo &mdash; troque
-  &ldquo;Workday Wake&rdquo; pelo nome do app no seu launcher onde a configuração o citar:</p>
+  &ldquo;Weekday Wake&rdquo; pelo nome do app no seu launcher onde a configuração o citar:</p>
 <table>
   <tr><th>Marca / interface</th><th>Passos (como no Guia de bateria do app)</th></tr>
   <tr><td>Xiaomi / MIUI, HyperOS</td><td>Permitir <b>Autostart</b>; nas permissões avançadas ativar
@@ -162,14 +162,14 @@
     ou cadeado).</td></tr>
   <tr><td>Samsung / One UI</td><td>Configurações &gt; Cuidados com bateria e aparelho &gt; Bateria &gt; Limites
     de uso em segundo plano: tirar de &ldquo;Apps em suspensão&rdquo; e &ldquo;Apps em suspensão profunda&rdquo;, colocar em
-    &ldquo;Apps nunca suspensos&rdquo;; Configurações &gt; Apps &gt; Workday Wake &gt; Bateria &gt; Sem restrições.
+    &ldquo;Apps nunca suspensos&rdquo;; Configurações &gt; Apps &gt; Weekday Wake &gt; Bateria &gt; Sem restrições.
     Garanta também que &ldquo;Suspender apps não usados&rdquo; está desativado &mdash; pode abafar alarmes de
     apps sem uso por dias.</td></tr>
   <tr><td>Huawei / EMUI, HarmonyOS</td><td>Configurações &gt; Bateria &gt; Início de apps: escolher
     &ldquo;Gerenciar manualmente&rdquo; e ativar Início automático, Início secundário e Executar em segundo plano;
     Otimização de bateria: &ldquo;Não permitir&rdquo; (desativar).</td></tr>
   <tr><td>OnePlus / Oppo / Realme (ColorOS)</td><td>Otimização de bateria: &ldquo;Não otimizado&rdquo;;
-    Info do app &gt; Bateria: &ldquo;Permitir atividade em segundo plano&rdquo;/&ldquo;Sem restrições&rdquo;; no gerenciador de inicialização permitir auto-início; no DuraSpeed tire o Workday Wake da lista monitorada.</td></tr>
+    Info do app &gt; Bateria: &ldquo;Permitir atividade em segundo plano&rdquo;/&ldquo;Sem restrições&rdquo;; no gerenciador de inicialização permitir auto-início; no DuraSpeed tire o Weekday Wake da lista monitorada.</td></tr>
   <tr><td>Vivo / iQOO</td><td>No gerenciador de permissões permitir auto-início; desativar otimização
     de bateria; permitir atividade em segundo plano e bloquear nos apps recentes.</td></tr>
   <tr><td>Sony</td><td>Configurações &gt; Bateria &gt; Modo STAMINA: &ldquo;Desligado&rdquo; &mdash; ou desligue o
@@ -182,7 +182,7 @@
   é codificado à mão nem é fork específico de marca.</p>
 <div class="box">
   <strong>Dica que funciona em quase todas as interfaces:</strong> abra Apps recentes e
-  <b>bloqueie</b> o Workday Wake (ícone de cadeado). Só este passo evita a maioria das perdas por
+  <b>bloqueie</b> o Weekday Wake (ícone de cadeado). Só este passo evita a maioria das perdas por
   deslizar nos recentes e limpadores de memória, e também conserta widgets que param de atualizar após você tocar em Pular.
 </div>
 
@@ -256,18 +256,18 @@ não usar folha de compartilhamento.
 </ul>
 
 <h2 id="closing">Encerramento</h2>
-<p>Um despertador tem um só trabalho. O Workday Wake foi construído desde o início em torno das
+<p>Um despertador tem um só trabalho. O Weekday Wake foi construído desde o início em torno das
   versões mais difíceis desse trabalho: agenda de um jeito que sobrevive à morte do processo,
   rearma o que for apagado, se autovigia com um segundo processo quando necessário e relata
   honestamente no aparelho quando algo deu errado. E a linha de privacidade é absoluta &mdash;
   nenhuma dessa honestidade custa seus dados.</p>
 <p>Encontrou um aparelho onde o guia não vale? Abra
-  <a href="https://github.com/peterandree/workday-wake-app/issues">uma issue</a> e, se puder,
+  <a href="https://github.com/peterandree/weekday-wake-app/issues">uma issue</a> e, se puder,
   anexe os diagnósticos do aparelho via a ação voluntária de compartilhamento. Esse ciclo de
   retorno é a única coisa que um emulador não pode substituir.</p>
 
 <footer>
-  Workday Wake &mdash; o despertador inteligente que conhece sua agenda de trabalho. Páginas companheiras:
+  Weekday Wake &mdash; o despertador inteligente que conhece sua agenda de trabalho. Páginas companheiras:
   <a href="index.html">a página inicial</a> · <a href="privacy.html">política de privacidade</a> ·
   <a href="support.html">apoie o projeto</a> · <a href="impressum.html" hreflang="de">Impressum</a>
 </footer>
