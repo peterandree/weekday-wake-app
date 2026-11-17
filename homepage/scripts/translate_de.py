@@ -114,7 +114,7 @@ id_pairs = [
 ("<h3>Beautiful UI</h3>", "<h3>Schöne Oberfläche</h3>"),
 ("Clean, modern interface following Material Design guidelines.",
  "Aufgeräumte, moderne Oberfläche nach den Material-Design-Richtlinien."),
-('alt="Weekday Wake app: alarm list with a 7:30 weekday alarm"',
+('alt="Weekday Wake app: alarm list with a 7:00 weekday alarm"',
  'alt="Weekday-Wake-App: Weckerliste mit einem Arbeitstag-Wecker"'),
 ("New to Weekday Wake? Learn how to set up your first alarm and configure your work schedule.",
  "Neu bei Weekday Wake? Erfahre, wie du deinen ersten Wecker einrichtest und deinen Arbeitszeitplan konfigurierst."),

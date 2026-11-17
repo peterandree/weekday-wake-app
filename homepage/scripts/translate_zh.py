@@ -91,7 +91,7 @@ pairs = [
 ("<h3>Beautiful UI</h3>", "<h3>美观的界面</h3>"),
 ("Clean, modern interface following Material Design guidelines.",
  "遵循 Material Design 规范的简洁现代界面。"),
-('alt="Weekday Wake app: alarm list with a 7:30 weekday alarm"', 'alt="Weekday Wake 应用：闹钟列表中有工作日闹钟"'),
+('alt="Weekday Wake app: alarm list with a 7:00 weekday alarm"', 'alt="Weekday Wake 应用：闹钟列表中有工作日闹钟"'),
 ("New to Weekday Wake? Learn how to set up your first alarm and configure your work schedule.",
  "第一次用 Weekday Wake？了解如何设置第一个闹钟并配置工作日程。"),
 ("Read more", "了解更多"),
