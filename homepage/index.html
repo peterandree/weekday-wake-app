@@ -58,7 +58,6 @@
             <a href="#specs">Details</a>
             <a href="#features">Features</a>
             <a href="#screenshot">Screenshot</a>
-            <a href="#documentation">Documentation</a>
             <a href="#faq">FAQ</a>
         </div>
     </nav>
@@ -122,14 +121,11 @@
                     <div class="spec-card">
                         <h3>Languages</h3>
                         <p>English, Deutsch, Espa&ntilde;ol (LatAm), Fran&ccedil;ais, Portugu&ecirc;s (Brasil), 
-                        &#20013;&#25991; &#65288;&#31616;&#20307;&#65289;, &#26085;&#26412;&#35486;, and more &dash; translated by the community
-                        and open to additions.</p>
+                        &#20013;&#25991; &#65288;&#31616;&#20307;&#65289;, &#26085;&#26412;&#35486;, and more.</p>
                     </div>
                     <div class="spec-card">
                         <h3>Minimum Android</h3>
-                        <p>Android 12 or newer (API 31). Alarms are scheduled with
-                        <code>setAlarmClock()</code>, so no exact-alarm opt-out is needed on
-                        modern Android.</p>
+                        <p>Android 12 (Snow Cone) or newer.</p>
                     </div>
                     <div class="spec-card">
                         <h3>Permissions</h3>
@@ -166,7 +162,7 @@
                     <div class="feature-card animate">
                         <div class="feature-icon">🌍</div>
                         <h3>Region-Aware</h3>
-                        <p>Adapts to your country's and subdivision's official holidays and workday patterns. The app never reads your GPS.</p>
+                        <p>Adapts to your country's and subdivision's official holidays and workday patterns. Choose your region, add custom holidays, and override individual skips &mdash; all without location permission.</p>
                     </div>
                     <div class="feature-card animate">
                         <div class="feature-icon">⚙️</div>
@@ -196,166 +192,6 @@
             <div class="container">
                 <h2>App Preview</h2>
                 <img src="screenshot-1.webp" alt="Weekday Wake app: alarm list with a 7:00 weekday alarm" class="screenshot" width="615" height="1093" loading="lazy">
-            </div>
-        </section>
-
-        <section id="documentation" class="docs">
-            <div class="container">
-                <h2>Documentation</h2>
-                <div class="docs-grid">
-                    <div class="doc-card animate">
-                        <h3>Getting Started</h3>
-                        <p>New to Weekday Wake? Learn how to set up your first alarm and configure your work schedule.</p>
-                        <a href="#getting-started">Read more</a>
-                    </div>
-                    <div class="doc-card animate">
-                        <h3>Configuration</h3>
-                        <p>Dive deep into all the settings and options to customize your alarm experience.</p>
-                        <a href="#configuration">Read more</a>
-                    </div>
-                    <div class="doc-card animate">
-                        <h3>Region Settings</h3>
-                        <p>Understand how your chosen region affects your alarm schedule and holiday detection.</p>
-                        <a href="#location">Read more</a>
-                    </div>
-                    <div class="doc-card animate">
-                        <h3>Custom Holidays</h3>
-                        <p>Learn how to add your own holidays and special days when you don't need to wake up.</p>
-                        <a href="#custom-holidays">Read more</a>
-                    </div>
-                    <div class="doc-card animate">
-                        <h3>Troubleshooting</h3>
-                        <p>Find solutions to common issues and learn how to report bugs effectively.</p>
-                        <a href="#troubleshooting">Read more</a>
-                    </div>
-                    <div class="doc-card animate">
-                        <h3>Alarm Reliability</h3>
-                        <p>How Weekday Wake is built to keep ringing on Xiaomi, Samsung, Huawei and other aggressive battery managers.</p>
-                        <a href="against-hostile-oems.html">Read more</a>
-                    </div>
-                    <div class="doc-card animate">
-                        <h3>Contributing</h3>
-                        <p>Weekday Wake is developed by a small team and code contributions are not accepted. You can help by reporting bugs, translating the app, and telling people about it.</p>
-                        <a href="https://github.com/peterandree/weekday-wake-app/blob/main/CONTRIBUTING.md">Read more</a>
-                    </div>
-                </div>
-
-                <div id="getting-started" class="doc-section">
-                    <h3>Getting Started</h3>
-                    <p>Welcome to Weekday Wake! Here's how to get started:</p>
-                    <ol>
-                        <li><strong>Weekday Wake is not yet released.</strong> The app is in preparation for its first release; this page will link the install options as soon as a build is published.</li>
-                        <li><strong>Open the app</strong> and grant notification access</li>
-                        <li><strong>Select your country and region</strong> so the app can load your local public holidays</li>
-                        <li><strong>Configure your workdays</strong> in the settings menu</li>
-                        <li><strong>Create your first alarm</strong> by tapping the + button</li>
-                    </ol>
-                </div>
-
-                <div id="configuration" class="doc-section">
-                    <h3>Configuration Guide</h3>
-                    <h4>Work Schedule</h4>
-                    <p>By default, Weekday Wake assumes a Monday-Friday work week. To customize:</p>
-                    <ol>
-                        <li>Go to Settings &gt; Work Schedule</li>
-                        <li>Tap on the days you work</li>
-                        <li>Select your typical work hours</li>
-                    </ol>
-                    <h4>Alarm Settings</h4>
-                    <p>Each alarm can be configured with:</p>
-                    <ul>
-                        <li><strong>Time:</strong> When the alarm should ring</li>
-                        <li><strong>Label:</strong> A name for the alarm (e.g., "Morning Commute")</li>
-                        <li><strong>Sound:</strong> Choose from available alarm sounds</li>
-                        <li><strong>Vibration:</strong> Enable or disable vibration</li>
-                        <li><strong>Snooze:</strong> Allow snoozing and set duration</li>
-                        <li><strong>Active Days:</strong> Override the global work schedule for this specific alarm</li>
-                    </ul>
-                </div>
-
-                <div id="location" class="doc-section">
-                    <h3>Region Settings</h3>
-                    <p>Weekday Wake picks public holidays for the country and region <strong>you
-                        choose</strong>. It uses that to:</p>
-                    <ul>
-                        <li>Load the official public holidays for that country and subdivision</li>
-                        <li>Provide region-specific workday defaults</li>
-                    </ul>
-                    <p><strong>There is no automatic location detection.</strong> The app does not
-                        request any location permission and never reads your GPS &dash; your
-                        timezone comes from your device's system settings, not from a location fix.</p>
-                    <p><strong>Choosing your region:</strong></p>
-                    <ol>
-                        <li>Go to Settings &gt; Change location</li>
-                        <li>Search for your country and select it</li>
-                        <li>If your country has states or regions, select yours</li>
-                        <li>The app refreshes the holiday calendar for that region</li>
-                    </ol>
-                    <p>You can also set this during onboarding, or from the dashboard's
-                        &ldquo;Configure location&rdquo; prompt. Until a region is selected, holiday
-                        skipping stays inactive and alarms ring on every day.</p>
-                </div>
-
-                <div id="custom-holidays" class="doc-section">
-                    <h3>Custom Holidays</h3>
-                    <p>In addition to automatic holiday detection, you can add your own special days:</p>
-                    <h4>Adding a Single Holiday</h4>
-                    <ol>
-                        <li>Go to Settings &gt; Holidays</li>
-                        <li>Tap Add Holiday</li>
-                        <li>Select the date and give it a name (e.g., "Summer Vacation")</li>
-                        <li>Save the holiday</li>
-                    </ol>
-                    <h4>Adding Recurring Holidays</h4>
-                    <p>For holidays that repeat every year (like your birthday or anniversary):</p>
-                    <ol>
-                        <li>Go to Settings &gt; Holidays</li>
-                        <li>Tap Add Recurring Holiday</li>
-                        <li>Select the month and day</li>
-                        <li>Give it a name and save</li>
-                    </ol>
-                </div>
-
-                <div id="troubleshooting" class="doc-section">
-                    <h3>Troubleshooting</h3>
-                    <h4>Alarms Not Ringing</h4>
-                    <p><strong>Check the following:</strong></p>
-                    <ol>
-                        <li>Ensure the alarm is enabled (toggle switch should be on)</li>
-                        <li>Verify the alarm time is set correctly</li>
-                        <li>Check that today is a workday in your schedule</li>
-                        <li>Make sure your phone's volume is up and Do Not Disturb is off</li>
-                        <li>Verify that the app has notification permissions</li>
-                    </ol>
-                    <h4>Alarms Ringing on Holidays</h4>
-                    <p><strong>Possible causes:</strong></p>
-                    <ul>
-                        <li>No region is selected yet &dash; go to Settings &gt; Change location</li>
-                        <li>The holiday data for your region has not loaded (needs internet once)</li>
-                        <li>You might have overridden the holiday in your custom settings</li>
-                    </ul>
-                    <p><strong>Solution:</strong> Add the holiday manually in Settings &gt; Holidays</p>
-                    <h4>Battery Optimization Issues</h4>
-                    <p>Some Android devices aggressively optimize battery usage, which can prevent alarms from ringing. To fix this:</p>
-                    <ol>
-                        <li>Go to your phone's Settings &gt; Battery &gt; Battery Optimization</li>
-                        <li>Find Weekday Wake in the list</li>
-                        <li>Select Don't optimize</li>
-                    </ol>
-					<p>Note: If you are using a device from Xiaomi, Realme, Oppo, Vivo, or Samsung, standard Android settings are not enough.<br>
-						Please open the Weekday-Wake app, navigate to Settings, and follow the specific 'Device Battery Guide' provided for your phone.
-					</p>
-					<p>For the full picture of how Weekday Wake survives these devices &dash; watchdog process, self-healing, diagnostics &dash; read the
-						<a href="against-hostile-oems.html">Alarm Reliability guide</a>.
-					</p>
-					<h4>Widgets Not Updating</h4>
-					<p>If your home screen widget is stuck showing "Morning alarm" or doesn't update immediately after you tap Skip:</p>
-					<ol>
-						<li>Open your phone's <strong>Recent Apps</strong> screen.</li>
-						<li>Tap the three dots (or swipe down) on the Weekday-Wake card.</li>
-						<li>Select <strong>Lock</strong>. A lock icon will appear, and your widgets will now update instantly.</li>
-					</ol>
-                </div>
             </div>
         </section>
 
