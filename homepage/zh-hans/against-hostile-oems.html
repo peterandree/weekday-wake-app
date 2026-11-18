@@ -43,7 +43,7 @@
   通常都能正常工作。但在相当大一部分安卓装机量上并非如此：多家
   厂商的电源管理功能会杀掉后台应用、悄悄丢掉已排定的
   闹钟，或阻止应用自启 &mdash; 往往
-  <em>而且完全不从通知应用“有东西被取消了”</em>。</p>
+  <em>根本不通知应用“有东西被取消了”</em>。</p>
 <div class="box">
   关键问题正是这种不对称：你的闹钟没了，应用却永远不知情。
   Weekday Wake 为此做的所有设计都围绕一个问题：
@@ -58,14 +58,14 @@
 
 <h2 id="threats">敌意环境实际会做什么</h2>
 <table>
-  <tr><th>机制</th><th>常见于</th><th>对天真的闹钟应用的影响</th></tr>
+  <tr><th>机制</th><th>常见于</th><th>对未加防护的闹钟应用的影响</th></tr>
   <tr><td>最近任务上划杀进程 / 强制停止</td><td>Xiaomi (MIUI/HyperOS), Samsung (One&nbsp;UI)</td><td>已注册的闹钟被清空，且不回调应用</td></tr>
   <tr><td>缓存进程清除（“内存清理”）</td><td>Xiaomi, Oppo/ColorOS, Samsung</td><td>进程无预警死亡；应用在进程层面的计划全部落空</td></tr>
   <tr><td>后台冻结 / 自启动限制</td><td>Xiaomi (HyperOS/MIUI Autostart), Oppo/ColorOS (DuraSpeed)</td><td>闹钟可能照常送达，但响铃的进程被冻结 &mdash; 或应用永远无法自行重启</td></tr>
   <tr><td>电池优化被设为“受限制”</td><td>原生安卓也有，外加厂商电池管理</td><td>闹钟被延迟或批量投递；即使最高优先级的闹钟 API 也可能被饿死</td></tr>
   <tr><td>深度 Doze / 低活跃度存储桶</td><td>所有安卓；阈值因系统定制而异</td><td>除非闹钟 API 获得豁免，否则投递被推迟</td></tr>
   <tr><td>开机广播被拦截（自启动）</td><td>Xiaomi/MIUI, HyperOS</td><td>重启后闹钟不会重新注册，直到用户允许自启动</td></tr>
-  <tr><td>备份恢复和系统升级</td><td>All Android</td><td>与上划杀进程一样：注册无声无息消失</td></tr>
+  <tr><td>备份恢复和系统升级</td><td>所有安卓</td><td>与上划杀进程一样：注册无声无息消失</td></tr>
 </table>
 
 <h2 id="layers">我们叠加的层层防线</h2>

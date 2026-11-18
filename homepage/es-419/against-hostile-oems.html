@@ -58,14 +58,14 @@
 
 <h2 id="threats">Lo que un entorno hostil en realidad hace</h2>
 <table>
-  <tr><th>Mecanismo</th><th>Típico en</th><th>Efecto en una app de alarma ingenua</th></tr>
+  <tr><th>Mecanismo</th><th>Típico en</th><th>Efecto en una app de alarma sin protecciones</th></tr>
   <tr><td>Matar deslizando en recientes / forzar detención</td><td>Xiaomi (MIUI/HyperOS), Samsung (One&nbsp;UI)</td><td>Las alarmas programadas se borran, sin devolución de llamada a la app</td></tr>
   <tr><td>Matar procesos en caché («limpiador de memoria»)</td><td>Xiaomi, Oppo/ColorOS, Samsung</td><td>El proceso muere sin aviso; todo lo que la app planeaba a nivel de proceso se pierde</td></tr>
   <tr><td>Congelador en segundo plano / barreras de autoinicio</td><td>Xiaomi (HyperOS/MIUI Autostart), Oppo/ColorOS (DuraSpeed)</td><td>Las alarmas quizá lleguen, pero el proceso que las suena queda congelado &mdash; o la app nunca puede reiniciarse</td></tr>
-  <tr><td>Optimización de batería en «Restringida»</td><td>También Android puro, más gestores de batería del OEM</td><td>Las alarmas se retrasan o agrupan; hasta la API de alarma de mayor prioridad puede quedar sin comida</td></tr>
-  <tr><td>Doze profundo / depósitos de baja actividad</td><td>Todo Android; los umbrales varían según la capa</td><td>Entregas diferidas salvo que la API de alarma esté exenta</td></tr>
+  <tr><td>Optimización de batería en «Restringida»</td><td>También Android puro, más gestores de batería del OEM</td><td>Las alarmas se retrasan o agrupan; hasta la API de alarma de mayor prioridad puede quedarse sin recursos</td></tr>
+  <tr><td>Doze profundo / contenedores de baja actividad</td><td>Todo Android; los umbrales varían según la capa</td><td>Entregas diferidas salvo que la API de alarma esté exenta</td></tr>
   <tr><td>Supresión del broadcast de arranque (Autostart)</td><td>Xiaomi/MIUI, HyperOS</td><td>Las alarmas no se rearman tras un reinicio hasta que el usuario da Autostart</td></tr>
-  <tr><td>Copia de seguridad/restauración y actualizaciones del SO</td><td>All Android</td><td>Igual que el barrido: los registros desaparecen sin aviso</td></tr>
+  <tr><td>Copia de seguridad/restauración y actualizaciones del SO</td><td>Todo Android</td><td>Igual que el barrido: los registros desaparecen sin aviso</td></tr>
 </table>
 
 <h2 id="layers">Las capas que apilamos</h2>
@@ -250,9 +250,9 @@
 <ul>
   <li><strong>Verificado en un piso AOSP, no en todos los equipos.</strong> El diseño de
       resiliencia se prueba con primitivas del proyecto AOSP (muertes de proceso, Doze
-      profundo, depósitos de espera) en un emulador Pixel desechable, porque es lo que se
+      profundo, contenedores de espera) en un emulador Pixel desechable, porque es lo que se
       puede automatizar. Un emulador no replica del todo las barreras Autostart de Xiaomi,
-      Device Care de Samsung ni la throttling de alarmas del OEM &mdash; el comportamiento real se
+      Device Care de Samsung ni la limitación de alarmas del OEM &mdash; el comportamiento real se
       aproxima vía dontkillmyapp.com, informes por marca y diagnósticos que envían usuarios como tú.</li>
   <li><strong>Sin garantías.</strong> Los OEM agresivos cambian su gestión de energía entre
       versiones de firmware. Si una marca estrena un mecanismo nuevo de exterminio, la app quizá
