@@ -66,7 +66,7 @@ storniert wurde</em>.</p>
   <tr><td>Akkuoptimierung auf „Eingeschränkt“</td><td>Auch pures Android, dazu OEM-Akkumanager</td><td>Wecker-Auslieferungen werden verzögert oder gebündelt; selbst die höchstpriorisierte Alarm-API kann ausgehungert werden</td></tr>
   <tr><td>Tiefer Doze / niedrige Aktivitäts-Buckets</td><td>Ganz Android; die Schwellen unterscheiden sich je Oberfläche</td><td>Auslieferungen werden aufgeschoben, außer die Alarm-API ist ausgenommen</td></tr>
   <tr><td>Unterdrückte Boot-Broadcasts (Autostart)</td><td>Xiaomi/MIUI, HyperOS</td><td>Wecker werden nach einem Neustart erst neu angelegt, wenn der Nutzer Autostart erlaubt</td></tr>
-  <tr><td>Sicherung/Wiederherstellung und OS-Upgrades</td><td>All Android</td><td>Wie Wisch-Beenden: Anmeldungen stillschweigend verschwunden</td></tr>
+  <tr><td>Sicherung/Wiederherstellung und OS-Upgrades</td><td>Ganz Android</td><td>Wie Wisch-Beenden: Registrierungen stillschweigend verschwunden</td></tr>
 </table>
 
 <h2 id="layers">Die Schichten, die wir stapeln</h2>
@@ -207,7 +207,7 @@ storniert wurde</em>.</p>
   <li>Wie viele <b>Ausfälle</b> wurden erkannt, und wann hat die App zuletzt <b>sich selbst geheilt</b>
       (nach einem Ausfall neu geplant)?</li>
   <li>Deine App-Version, Android-Version, Hersteller und Modell &mdash; dort, wo sich
-      herstellerspezifisches Verhmen tatsächlich zeigt.</li>
+      herstellerspezifisches Verhalten tatsächlich zeigt.</li>
 </ul>
 <div class="box ok">
   Alles auf diesem Bildschirm wird auf deinem Gerät berechnet und gespeichert. Diagnose ist
@@ -251,7 +251,7 @@ storniert wurde</em>.</p>
 <h2 id="limits">Ehrliche Grenzen</h2>
 <ul>
   <li><strong>Auf der AOSP-Basis verifiziert, nicht auf jedem Gerät.</strong> Das
-      Widerstandsdesign wird mit Primitive des Android Open Source Project geprüft (Prozess-Kills,
+      Widerstandsdesign wird mit Primitiven des Android Open Source Project geprüft (Prozess-Kills,
       tiefer Doze, Standby-Buckets) auf einem Wegwerf-Pixel-AVD, denn genau das lässt sich automatisieren.
       Ein Emulator kann Xiaomi-Autostart-Schranken, Samsung Device Care oder OEM-Wecker-Drosselung
       nicht vollständig nachbilden &mdash; echtes Geräteverhalten wird angenähert über
@@ -271,11 +271,11 @@ storniert wurde</em>.</p>
   Versionen dieser Aufgabe herum gebaut: Es plant so, dass Prozess-Tod überlebt wird,
   es legt neu an, was ausgelöscht wird, es überwacht sich selbst mit einem zweiten Prozess,
   wo nötig, und es berichtet ehrlich auf dem Gerät, wenn etwas schiefging. Und die
-  Datenschutz-Linie ist absolut &mdash; keine dieser Ehrlichkeit kostet dich deine Daten.</p>
+  Datenschutz-Linie ist absolut &mdash; nichts an dieser Ehrlichkeit kostet dich deine Daten.</p>
 <p>Ein Gerät gefunden, auf dem der Leitfaden nicht gilt? Bitte
   <a href="https://github.com/peterandree/weekday-wake-app/issues">öffne ein Issue</a> und
   hänge, wenn möglich, die Diagnose vom Gerät über die freiwillige Teilen-Aktion an. Diese
-  Rückkopplung ist das Eine, was ein Emulator nicht ersetzen kann.</p>
+  Rückkopplung ist das Einzige, was ein Emulator nicht ersetzen kann.</p>
 
 <footer>
   Weekday Wake &mdash; der clevere Wecker, der deinen Arbeitszeitplan kennt. Begleitseiten:
