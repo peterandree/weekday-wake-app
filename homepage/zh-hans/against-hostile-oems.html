@@ -5,8 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>闹钟可靠性 — Weekday Wake</title>
 <meta name="description" content="Weekday Wake 如何在小米、三星、华为等采取激进电池管理的安卓设备上保持闹钟响铃 — 以及你可以在自己设备上检查什么。">
+    <link rel="canonical" href="https://peterandree.github.io/weekday-wake-app/zh-hans/against-hostile-oems.html">
 <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="../css/against-hostile-oems.css">
+<link rel="alternate" hreflang="en" href="https://peterandree.github.io/weekday-wake-app/against-hostile-oems.html">
+<link rel="alternate" hreflang="de" href="https://peterandree.github.io/weekday-wake-app/de/against-hostile-oems.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://peterandree.github.io/weekday-wake-app/zh-hans/against-hostile-oems.html">
+<link rel="alternate" hreflang="es-419" href="https://peterandree.github.io/weekday-wake-app/es-419/against-hostile-oems.html">
+<link rel="alternate" hreflang="fr" href="https://peterandree.github.io/weekday-wake-app/fr/against-hostile-oems.html">
+<link rel="alternate" hreflang="pt-BR" href="https://peterandree.github.io/weekday-wake-app/pt-br/against-hostile-oems.html">
+<link rel="alternate" hreflang="ja" href="https://peterandree.github.io/weekday-wake-app/ja/against-hostile-oems.html">
+<link rel="alternate" hreflang="x-default" href="https://peterandree.github.io/weekday-wake-app/against-hostile-oems.html">
 <script src="../js/lang.js" defer></script>
 </head>
 <body>
@@ -96,7 +105,7 @@
 <figure class="fig">
   <picture>
     <source srcset="../d1dark.svg" media="(prefers-color-scheme: dark)">
-    <img src="../d1.svg" alt="Timeline of one missed alarm: it is scheduled with setAlarmClock, the OEM kills the process and wipes registrations, boot and per-day watchdog jobs re-arm everything, the 6-hour mutual heartbeat notices the stale peer, the miss detector compares expected against actual fire, a self-heal reschedules all alarms, one incident escalates the device to tier 2, and three consecutive stale observations raise a user-facing distress notification." loading="lazy">
+    <img src="../d1.svg" alt="一次错过闹钟的时间线：闹钟通过 setAlarmClock 调度，OEM 杀掉进程并清除注册信息，开机与每日看门狗任务重新注册全部内容，6 小时互相心跳发现对端已过期，漏检器将预期触发时间与实际触发时间对比，自愈机制重新调度所有闹钟，一次事件将设备升级到第 2 层，连续三次过期观察会发出面向用户的告警通知。" loading="lazy">
   </picture>
   <figcaption class="figcap">图 1 &mdash; 一次闹钟漏响，以及每层的应对</figcaption>
 </figure>
@@ -104,7 +113,7 @@
 <figure class="fig">
   <picture>
     <source srcset="../d2dark.svg" media="(prefers-color-scheme: dark)">
-    <img src="../d2.svg" alt="Flowchart of the primary fire path: the user sets an alarm, the scheduler computes a holiday-aware fire time and registers setAlarmClock with AlarmManager, when the wall clock is reached a broadcast receiver starts the foreground ring service and audio, raises a full-screen intent to the UI, reschedules the next occurrence, and the ring marker is the only oracle." loading="lazy">
+    <img src="../d2.svg" alt="主要触发路径流程图：用户设置闹钟，调度器计算考虑节假日的触发时间并向 AlarmManager 注册 setAlarmClock，到达实际时刻时广播接收器启动前台响铃服务和音频，向上层界面发出全屏 Intent，重新调度下一次，响铃标记是唯一的判据。" loading="lazy">
   </picture>
   <figcaption class="figcap">图 2 &mdash; 主触发路径：<code>setAlarmClock()</code> 在进程死亡时也能送达</figcaption>
 </figure>
@@ -112,7 +121,7 @@
 <figure class="fig port">
   <picture>
     <source srcset="../d3dark.svg" media="(prefers-color-scheme: dark)">
-    <img src="../d3.svg" alt="Flowchart of restore triggers: boot completed is direct-boot aware, time and timezone changes, application process start, and WorkManager periodic jobs all feed one central reschedule routine that re-registers setAlarmClock entries and re-arms the evening warning." loading="lazy">
+    <img src="../d3.svg" alt="恢复触发流程图：开机完成支持直接启动、时间和时区变更、应用进程启动以及 WorkManager 周期任务，全部汇入一个统一的重新调度例程，由它重新注册 setAlarmClock 条目并重新启用晚间提醒。" loading="lazy">
   </picture>
   <figcaption class="figcap">图 3 &mdash; 恢复：四个独立触发器重建被厂商清除的内容</figcaption>
 </figure>
@@ -120,7 +129,7 @@
 <figure class="fig">
   <picture>
     <source srcset="../d4dark.svg" media="(prefers-color-scheme: dark)">
-    <img src="../d4.svg" alt="Flowchart of the supervision layer: the main process and the watchdog process each write a heartbeat every six hours to a shared database, each reads the other's beat and checks it against a thirteen-hour staleness threshold, a stale peer triggers a restart or reschedule, per-side failure counters feed a distress notifier that posts one user-facing notification after three consecutive stale observations, with a twelve-hour claim preventing duplicate notices." loading="lazy">
+    <img src="../d4.svg" alt="监督层流程图：主进程和看门狗进程每六小时向共享数据库各写入一次心跳，各自读取对方的心跳并对照十三小时的过期阈值，对端过期会触发重启或重新调度，各侧失败计数器汇入告警通知器，在连续三次过期观察后发出一次面向用户的通知，十二小时的声明可防止重复通知。" loading="lazy">
   </picture>
   <figcaption class="figcap">图 4 &mdash; 监督：主进程与守护进程之间的互搏心跳</figcaption>
 </figure>
@@ -128,7 +137,7 @@
 <figure class="fig">
   <picture>
     <source srcset="../d5dark.svg" media="(prefers-color-scheme: dark)">
-    <img src="../d5.svg" alt="Flowchart of the local detect and heal loop: on each heartbeat tick the expected fire time is checked against the last fired time within a grace window, a real miss increments the miss counter and triggers a self-heal that reschedules all alarms and stamps the last self-heal time, a recent self-heal coasts to avoid a heal loop, and the diagnostics screen shows all timestamps; sharing happens only on explicit user consent." loading="lazy">
+    <img src="../d5.svg" alt="本地检测与自愈循环流程图：每次心跳时在宽限窗口内将预期触发时间与上次触发时间对比，真正的漏触发会增加漏检计数并触发自愈，自愈会重新调度所有闹钟并记录上次自愈时间，最近自愈过则暂停以避免循环，诊断界面显示所有时间戳；仅在用户明确同意时才分享。" loading="lazy">
   </picture>
   <figcaption class="figcap">图 5 &mdash; 检测与自愈：本地漏响检测与静默自愈</figcaption>
 </figure>
@@ -136,7 +145,7 @@
 <figure class="fig port">
   <picture>
     <source srcset="../d6dark.svg" media="(prefers-color-scheme: dark)">
-    <img src="../d6.svg" alt="Flowchart of tiering: at process start the tier manager initializes, a hostile-OEM allowlist match escalates directly to tier 2 with the watchdog enabled, no match stays at tier 1 with the watchdog disabled, and a recorded reliability incident escalates tier 1 to tier 2; tier 2 is sticky with no automatic de-escalation." loading="lazy">
+    <img src="../d6.svg" alt="分层流程图：进程启动时分层管理器初始化，命中恶意 OEM 白名单会直接升级到第 2 层并启用看门狗，未命中则保持第 1 层且看门狗关闭，记录到可靠性事件会将第 1 层升级到第 2 层；第 2 层具有粘性，不会自动降级。" loading="lazy">
   </picture>
   <figcaption class="figcap">图 6 &mdash; 分级：守护进程正好在值得占用内存时启用</figcaption>
 </figure>
@@ -144,7 +153,7 @@
 <figure class="fig">
   <picture>
     <source srcset="../d7dark.svg" media="(prefers-color-scheme: dark)">
-    <img src="../d7.svg" alt="Flowchart of the stress harness: a script drives a throwaway Pixel emulator, installs the debug app, seeds a real alarm through the production scheduler, applies a restriction such as force-stop, process kill, deep doze or a standby bucket, waits while checking for the ring marker in the log, and reports pass, fail or skip with a report file; the emulator and its disk image are deleted afterwards." loading="lazy">
+    <img src="../d7.svg" alt="压力测试框架流程图：脚本驱动一次性 Pixel 模拟器，安装调试版应用，通过生产调度器植入真实闹钟，施加强制停止、杀进程、深度休眠或待机分桶等限制，等待并检查日志中的响铃标记，并以报告文件给出通过、失败或跳过；随后删除模拟器及其磁盘映像。" loading="lazy">
   </picture>
   <figcaption class="figcap">图 7 &mdash; 验证：压力测试驱动生产闹钟链路，而非合成测试</figcaption>
 </figure>

@@ -5,8 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Fiabilidad de la alarma — Weekday Wake</title>
 <meta name="description" content="Cómo Weekday Wake mantiene sonando las alarmas en Xiaomi, Samsung, Huawei y otros aparatos Android con gestión de batería agresiva — y qué revisar en tu dispositivo.">
+    <link rel="canonical" href="https://peterandree.github.io/weekday-wake-app/es-419/against-hostile-oems.html">
 <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="../css/against-hostile-oems.css">
+<link rel="alternate" hreflang="en" href="https://peterandree.github.io/weekday-wake-app/against-hostile-oems.html">
+<link rel="alternate" hreflang="de" href="https://peterandree.github.io/weekday-wake-app/de/against-hostile-oems.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://peterandree.github.io/weekday-wake-app/zh-hans/against-hostile-oems.html">
+<link rel="alternate" hreflang="es-419" href="https://peterandree.github.io/weekday-wake-app/es-419/against-hostile-oems.html">
+<link rel="alternate" hreflang="fr" href="https://peterandree.github.io/weekday-wake-app/fr/against-hostile-oems.html">
+<link rel="alternate" hreflang="pt-BR" href="https://peterandree.github.io/weekday-wake-app/pt-br/against-hostile-oems.html">
+<link rel="alternate" hreflang="ja" href="https://peterandree.github.io/weekday-wake-app/ja/against-hostile-oems.html">
+<link rel="alternate" hreflang="x-default" href="https://peterandree.github.io/weekday-wake-app/against-hostile-oems.html">
 <script src="../js/lang.js" defer></script>
 </head>
 <body>
@@ -15,7 +24,7 @@
 
 <h1>Fiabilidad de la alarma</h1>
 <p class="sub">Cómo está diseñado Weekday Wake para seguir sonando en Xiaomi, Samsung, Huawei y
-  otros equipos con gestión de energía agresiva battery management &mdash; and what you can check on your phone.</p>
+  otros equipos con gestión de energía agresiva &mdash; y qué puedes revisar en tu teléfono.</p>
 
 <nav class="toc" aria-label="In this guide">
   <a href="#why">Por qué existe esta página</a> ·
@@ -97,7 +106,7 @@
 <figure class="fig">
   <picture>
     <source srcset="../d1dark.svg" media="(prefers-color-scheme: dark)">
-    <img src="../d1.svg" alt="Timeline of one missed alarm: it is scheduled with setAlarmClock, the OEM kills the process and wipes registrations, boot and per-day watchdog jobs re-arm everything, the 6-hour mutual heartbeat notices the stale peer, the miss detector compares expected against actual fire, a self-heal reschedules all alarms, one incident escalates the device to tier 2, and three consecutive stale observations raise a user-facing distress notification." loading="lazy">
+    <img src="../d1.svg" alt="Línea de tiempo de una alarma perdida: se programa con setAlarmClock, el OEM mata el proceso y borra los registros, los trabajos de arranque y de vigilancia diaria vuelven a armar todo, el latido mutuo de 6 horas detecta al par desactualizado, el detector de fallos compara la hora esperada con la real, una autocuración reprograma todas las alarmas, un incidente eleva el equipo al nivel 2, y tres observaciones desactualizadas seguidas generan una notificación de alerta visible para el usuario." loading="lazy">
   </picture>
   <figcaption class="figcap">Fig. 1 &mdash; Una sola alarma perdida y cómo reacciona cada capa</figcaption>
 </figure>
@@ -105,7 +114,7 @@
 <figure class="fig">
   <picture>
     <source srcset="../d2dark.svg" media="(prefers-color-scheme: dark)">
-    <img src="../d2.svg" alt="Flowchart of the primary fire path: the user sets an alarm, the scheduler computes a holiday-aware fire time and registers setAlarmClock with AlarmManager, when the wall clock is reached a broadcast receiver starts the foreground ring service and audio, raises a full-screen intent to the UI, reschedules the next occurrence, and the ring marker is the only oracle." loading="lazy">
+    <img src="../d2.svg" alt="Diagrama de flujo de la ruta principal de disparo: el usuario fija una alarma, el planificador calcula una hora de disparo consciente de feriados y registra setAlarmClock con AlarmManager, al llegar la hora real un receptor de difusión inicia el servicio de timbre en primer plano y el audio, lanza un intent de pantalla completa a la interfaz, reprograma la siguiente ocurrencia, y el marcador de timbre es el único oráculo." loading="lazy">
   </picture>
   <figcaption class="figcap">Fig. 2 &mdash; El sendero principal: <code>setAlarmClock()</code> entrega aunque el proceso esté muerto</figcaption>
 </figure>
@@ -113,7 +122,7 @@
 <figure class="fig port">
   <picture>
     <source srcset="../d3dark.svg" media="(prefers-color-scheme: dark)">
-    <img src="../d3.svg" alt="Flowchart of restore triggers: boot completed is direct-boot aware, time and timezone changes, application process start, and WorkManager periodic jobs all feed one central reschedule routine that re-registers setAlarmClock entries and re-arms the evening warning." loading="lazy">
+    <img src="../d3.svg" alt="Diagrama de flujo de los disparadores de restauración: el arranque completado es consciente de direct-boot, los cambios de hora y zona horaria, el inicio del proceso de la app y los trabajos periódicos de WorkManager alimentan una única rutina central de reprogramación que vuelve a registrar las entradas de setAlarmClock y rearma el aviso nocturno." loading="lazy">
   </picture>
   <figcaption class="figcap">Fig. 3 &mdash; Restaurar: cuatro disparadores independientes rearmean lo que el OEM borró</figcaption>
 </figure>
@@ -121,7 +130,7 @@
 <figure class="fig">
   <picture>
     <source srcset="../d4dark.svg" media="(prefers-color-scheme: dark)">
-    <img src="../d4.svg" alt="Flowchart of the supervision layer: the main process and the watchdog process each write a heartbeat every six hours to a shared database, each reads the other's beat and checks it against a thirteen-hour staleness threshold, a stale peer triggers a restart or reschedule, per-side failure counters feed a distress notifier that posts one user-facing notification after three consecutive stale observations, with a twelve-hour claim preventing duplicate notices." loading="lazy">
+    <img src="../d4.svg" alt="Diagrama de flujo de la capa de supervisión: el proceso principal y el proceso vigilante escriben un latido cada seis horas en una base de datos compartida, cada uno lee el latido del otro y lo compara con un umbral de trece horas, un par desactualizado dispara un reinicio o una reprogramación, los contadores de fallos por lado alimentan un notificador de alerta que publica una notificación visible tras tres observaciones desactualizadas seguidas, con una reclamación de doce horas que evita avisos duplicados." loading="lazy">
   </picture>
   <figcaption class="figcap">Fig. 4 &mdash; Supervisión: el guardián de latidos mutuos entre el proceso principal y el guardián</figcaption>
 </figure>
@@ -129,7 +138,7 @@
 <figure class="fig">
   <picture>
     <source srcset="../d5dark.svg" media="(prefers-color-scheme: dark)">
-    <img src="../d5.svg" alt="Flowchart of the local detect and heal loop: on each heartbeat tick the expected fire time is checked against the last fired time within a grace window, a real miss increments the miss counter and triggers a self-heal that reschedules all alarms and stamps the last self-heal time, a recent self-heal coasts to avoid a heal loop, and the diagnostics screen shows all timestamps; sharing happens only on explicit user consent." loading="lazy">
+    <img src="../d5.svg" alt="Diagrama de flujo del ciclo local de detección y reparación: en cada latido se compara la hora de disparo esperada con la última disparada dentro de una ventana de gracia, un fallo real incrementa el contador de fallos y dispara una autocuración que reprograma todas las alarmas y marca la última hora de autocuración, una autocuración reciente se mantiene a la espera para evitar un bucle, y la pantalla de diagnósticos muestra todas las marcas de tiempo; solo se comparte con el consentimiento explícito del usuario." loading="lazy">
   </picture>
   <figcaption class="figcap">Fig. 5 &mdash; Detectar y sanar: el detector local de fallos y su autocuración silenciosa</figcaption>
 </figure>
@@ -137,7 +146,7 @@
 <figure class="fig port">
   <picture>
     <source srcset="../d6dark.svg" media="(prefers-color-scheme: dark)">
-    <img src="../d6.svg" alt="Flowchart of tiering: at process start the tier manager initializes, a hostile-OEM allowlist match escalates directly to tier 2 with the watchdog enabled, no match stays at tier 1 with the watchdog disabled, and a recorded reliability incident escalates tier 1 to tier 2; tier 2 is sticky with no automatic de-escalation." loading="lazy">
+    <img src="../d6.svg" alt="Diagrama de flujo de los niveles: al iniciar el proceso se inicializa el gestor de niveles, una coincidencia con la lista de OEM hostiles eleva directamente al nivel 2 con el vigilante activado, sin coincidencia se queda en el nivel 1 con el vigilante desactivado, y un incidente de fiabilidad registrado eleva el nivel 1 al nivel 2; el nivel 2 es permanente y no se reduce automáticamente." loading="lazy">
   </picture>
   <figcaption class="figcap">Fig. 6 &mdash; Niveles: el guardián se activa justo cuando se gana su memoria</figcaption>
 </figure>
@@ -145,7 +154,7 @@
 <figure class="fig">
   <picture>
     <source srcset="../d7dark.svg" media="(prefers-color-scheme: dark)">
-    <img src="../d7.svg" alt="Flowchart of the stress harness: a script drives a throwaway Pixel emulator, installs the debug app, seeds a real alarm through the production scheduler, applies a restriction such as force-stop, process kill, deep doze or a standby bucket, waits while checking for the ring marker in the log, and reports pass, fail or skip with a report file; the emulator and its disk image are deleted afterwards." loading="lazy">
+    <img src="../d7.svg" alt="Diagrama de flujo del arnés de estrés: un script controla un emulador Pixel desechable, instala la app de depuración, siembra una alarma real mediante el planificador de producción, aplica una restricción como force-stop, muerte del proceso, doze profundo o un bucket de standby, espera mientras comprueba el marcador de timbre en el registro, e informa aprobado, fallido u omitido con un archivo de informe; después se eliminan el emulador y su imagen de disco." loading="lazy">
   </picture>
   <figcaption class="figcap">Fig. 7 &mdash; Verificación: el arnés de estrés empuja la cadena de alarma real, no trabajo sintético</figcaption>
 </figure>
@@ -188,9 +197,8 @@
 </div>
 
 <h2 id="diag">Tus diagnósticos en el dispositivo</h2>
-<p>Every piece of reliability engineering above leaves a trace you can inspect locally.
-  En <em>Ajustes &gt; Diagnósticos</em> la app responde lo mismo que preguntaría un reporte de fallo:
-  would ask:</p>
+<p>Cada pieza de la ingeniería de fiabilidad anterior deja una huella que puedes inspeccionar localmente.
+  En <em>Ajustes &gt; Diagnósticos</em> la app responde las mismas preguntas que haría un reporte de fallo:</p>
 <ul>
   <li>Del lado web: ¿late el vigilante? ¿cuándo se <b>programó</b> la alarma por última vez,
       cuándo <b>debía</b> sonar, cuándo <b>sonó de verdad</b>?</li>

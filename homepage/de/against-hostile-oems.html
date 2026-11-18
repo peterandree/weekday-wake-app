@@ -5,8 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Wecker-Zuverlässigkeit — Weekday Wake</title>
 <meta name="description" content="Wie Weekday Wake auf Xiaomi, Samsung, Huawei und anderen Android-Geräten mit aggressivem Akku-Management das Klingeln hält &mdash; und was du auf deinem Gerät prüfen kannst.">
+    <link rel="canonical" href="https://peterandree.github.io/weekday-wake-app/de/against-hostile-oems.html">
 <meta name="color-scheme" content="light dark">
     <link rel="stylesheet" href="../css/against-hostile-oems.css">
+<link rel="alternate" hreflang="en" href="https://peterandree.github.io/weekday-wake-app/against-hostile-oems.html">
+<link rel="alternate" hreflang="de" href="https://peterandree.github.io/weekday-wake-app/de/against-hostile-oems.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://peterandree.github.io/weekday-wake-app/zh-hans/against-hostile-oems.html">
+<link rel="alternate" hreflang="es-419" href="https://peterandree.github.io/weekday-wake-app/es-419/against-hostile-oems.html">
+<link rel="alternate" hreflang="fr" href="https://peterandree.github.io/weekday-wake-app/fr/against-hostile-oems.html">
+<link rel="alternate" hreflang="pt-BR" href="https://peterandree.github.io/weekday-wake-app/pt-br/against-hostile-oems.html">
+<link rel="alternate" hreflang="ja" href="https://peterandree.github.io/weekday-wake-app/ja/against-hostile-oems.html">
+<link rel="alternate" hreflang="x-default" href="https://peterandree.github.io/weekday-wake-app/against-hostile-oems.html">
 <script src="../js/lang.js" defer></script>
 </head>
 <body>
@@ -98,7 +107,7 @@ storniert wurde</em>.</p>
 <figure class="fig">
   <picture>
     <source srcset="../d1dark.svg" media="(prefers-color-scheme: dark)">
-    <img src="../d1.svg" alt="Timeline of one missed alarm: it is scheduled with setAlarmClock, the OEM kills the process and wipes registrations, boot and per-day watchdog jobs re-arm everything, the 6-hour mutual heartbeat notices the stale peer, the miss detector compares expected against actual fire, a self-heal reschedules all alarms, one incident escalates the device to tier 2, and three consecutive stale observations raise a user-facing distress notification." loading="lazy">
+    <img src="../d1.svg" alt="Zeitleiste einer verpassten Weckzeit: Sie ist mit setAlarmClock geplant, der OEM beendet den Prozess und löscht Registrierungen, Boot- und Tages-Watchdog-Jobs legen alles neu an, der gegenseitige 6-Stunden-Herzschlag bemerkt den veralteten Partner, der Fehlerkenner vergleicht die erwartete mit der tatsächlichen Auslösung, eine Selbstheilung plant alle Wecker neu, ein Vorfall stuft das Gerät auf Stufe 2 hoch, und drei aufeinanderfolgende veraltete Beobachtungen lösen eine sichtbare Notfall-Benachrichtigung aus." loading="lazy">
   </picture>
   <figcaption class="figcap">Abb. 1 &mdash; Ein einzelner ausgebliebener Wecker und wie jede Schicht reagiert</figcaption>
 </figure>
@@ -106,7 +115,7 @@ storniert wurde</em>.</p>
 <figure class="fig">
   <picture>
     <source srcset="../d2dark.svg" media="(prefers-color-scheme: dark)">
-    <img src="../d2.svg" alt="Flowchart of the primary fire path: the user sets an alarm, the scheduler computes a holiday-aware fire time and registers setAlarmClock with AlarmManager, when the wall clock is reached a broadcast receiver starts the foreground ring service and audio, raises a full-screen intent to the UI, reschedules the next occurrence, and the ring marker is the only oracle." loading="lazy">
+    <img src="../d2.svg" alt="Flussdiagramm des primären Auslösepfads: Der Nutzer stellt einen Wecker, der Scheduler berechnet eine feiertagsbewusste Auslösezeit und registriert setAlarmClock beim AlarmManager, beim Erreichen der Uhrzeit startet ein BroadcastReceiver den Vordergrund-Klingeldienst und die Audioausgabe, löst einen Full-Screen-Intent an die UI aus, plant den nächsten Termin neu, und der Klingelmarker ist die einzige Prüfinstanz." loading="lazy">
   </picture>
   <figcaption class="figcap">Abb. 2 &mdash; Der Haupt-Auslösungspfad: <code>setAlarmClock()</code> liefert auch, wenn der Prozess tot ist</figcaption>
 </figure>
@@ -114,7 +123,7 @@ storniert wurde</em>.</p>
 <figure class="fig port">
   <picture>
     <source srcset="../d3dark.svg" media="(prefers-color-scheme: dark)">
-    <img src="../d3.svg" alt="Flowchart of restore triggers: boot completed is direct-boot aware, time and timezone changes, application process start, and WorkManager periodic jobs all feed one central reschedule routine that re-registers setAlarmClock entries and re-arms the evening warning." loading="lazy">
+    <img src="../d3.svg" alt="Flussdiagramm der Wiederherstellungs-Auslöser: Boot-Abschluss ist direct-boot-fähig, Änderungen von Uhrzeit und Zeitzone, Start des App-Prozesses und periodische WorkManager-Jobs speisen alle in eine zentrale Neuplanungsroutine, die setAlarmClock-Einträge neu registriert und die Abendwarnung neu scharf stellt." loading="lazy">
   </picture>
   <figcaption class="figcap">Abb. 3 &mdash; Wiederherstellen: vier unabhängige Auslöser legen neu an, was der OEM ausgelöscht hat</figcaption>
 </figure>
@@ -122,7 +131,7 @@ storniert wurde</em>.</p>
 <figure class="fig">
   <picture>
     <source srcset="../d4dark.svg" media="(prefers-color-scheme: dark)">
-    <img src="../d4.svg" alt="Flowchart of the supervision layer: the main process and the watchdog process each write a heartbeat every six hours to a shared database, each reads the other's beat and checks it against a thirteen-hour staleness threshold, a stale peer triggers a restart or reschedule, per-side failure counters feed a distress notifier that posts one user-facing notification after three consecutive stale observations, with a twelve-hour claim preventing duplicate notices." loading="lazy">
+    <img src="../d4.svg" alt="Flussdiagramm der Überwachungsschicht: Hauptprozess und Watchdog-Prozess schreiben jeweils alle sechs Stunden einen Herzschlag in eine gemeinsame Datenbank, jeder liest den Schlag des anderen und prüft ihn gegen eine Veraltungsschwelle von dreizehn Stunden, ein veralteter Partner löst einen Neustart oder eine Neuplanung aus, seitenspezifische Fehlerzähler speisen einen Notfall-Melder, der nach drei aufeinanderfolgenden veralteten Beobachtungen eine sichtbare Benachrichtigung postet, wobei ein Zwölf-Stunden-Anspruch doppelte Meldungen verhindert." loading="lazy">
   </picture>
   <figcaption class="figcap">Abb. 4 &mdash; Kontrolle: der wechselseitige Herzschlag-Watchdog zwischen Haupt- und Wach-Prozess</figcaption>
 </figure>
@@ -130,7 +139,7 @@ storniert wurde</em>.</p>
 <figure class="fig">
   <picture>
     <source srcset="../d5dark.svg" media="(prefers-color-scheme: dark)">
-    <img src="../d5.svg" alt="Flowchart of the local detect and heal loop: on each heartbeat tick the expected fire time is checked against the last fired time within a grace window, a real miss increments the miss counter and triggers a self-heal that reschedules all alarms and stamps the last self-heal time, a recent self-heal coasts to avoid a heal loop, and the diagnostics screen shows all timestamps; sharing happens only on explicit user consent." loading="lazy">
+    <img src="../d5.svg" alt="Flussdiagramm der lokalen Erkennungs- und Heilungsschleife: Bei jedem Herzschlag wird die erwartete Auslösezeit innerhalb eines Kulanzfensters mit der zuletzt ausgelösten Zeit verglichen, eine echte Verfehlung erhöht den Fehl-Zähler und löst eine Selbstheilung aus, die alle Wecker neu plant und die letzte Selbstheilungszeit stempelt, eine kürzliche Selbstheilung wartet ab, um eine Heilschleife zu vermeiden, und der Diagnosebildschirm zeigt alle Zeitstempel; Teilen erfolgt nur mit ausdrücklicher Zustimmung des Nutzers." loading="lazy">
   </picture>
   <figcaption class="figcap">Abb. 5 &mdash; Erkennen &amp; heilen: der lokale Ausfallsdetektor und seine stille Selbstheilung</figcaption>
 </figure>
@@ -138,7 +147,7 @@ storniert wurde</em>.</p>
 <figure class="fig port">
   <picture>
     <source srcset="../d6dark.svg" media="(prefers-color-scheme: dark)">
-    <img src="../d6.svg" alt="Flowchart of tiering: at process start the tier manager initializes, a hostile-OEM allowlist match escalates directly to tier 2 with the watchdog enabled, no match stays at tier 1 with the watchdog disabled, and a recorded reliability incident escalates tier 1 to tier 2; tier 2 is sticky with no automatic de-escalation." loading="lazy">
+    <img src="../d6.svg" alt="Flussdiagramm der Stufenzuordnung: Beim Prozessstart initialisiert der Stufen-Manager, ein Treffer auf der Hostile-OEM-Allowlist stuft direkt auf Stufe 2 mit aktivem Watchdog hoch, kein Treffer bleibt auf Stufe 1 mit deaktiviertem Watchdog, und ein protokollierter Zuverlässigkeitsvorfall stuft Stufe 1 auf Stufe 2 hoch; Stufe 2 bleibt bestehen, ohne automatische Rückstufung." loading="lazy">
   </picture>
   <figcaption class="figcap">Abb. 6 &mdash; Stufung: der Wachdienst wird genau dann aktiviert, wenn er seinen Speicher wert ist</figcaption>
 </figure>
@@ -146,7 +155,7 @@ storniert wurde</em>.</p>
 <figure class="fig">
   <picture>
     <source srcset="../d7dark.svg" media="(prefers-color-scheme: dark)">
-    <img src="../d7.svg" alt="Flowchart of the stress harness: a script drives a throwaway Pixel emulator, installs the debug app, seeds a real alarm through the production scheduler, applies a restriction such as force-stop, process kill, deep doze or a standby bucket, waits while checking for the ring marker in the log, and reports pass, fail or skip with a report file; the emulator and its disk image are deleted afterwards." loading="lazy">
+    <img src="../d7.svg" alt="Flussdiagramm des Stresstests: Ein Skript steuert einen Wegwerf-Pixel-Emulator, installiert die Debug-App, legt über den Produktions-Scheduler einen echten Wecker an, erzwingt eine Einschränkung wie Force-Stop, Prozess-Kill, Deep Doze oder einen Standby-Bucket, wartet und prüft dabei das Protokoll auf den Klingelmarker, und meldet Bestanden, Fehlgeschlagen oder Übersprungen mit einer Berichtsdatei; Emulator und Disk-Image werden danach gelöscht." loading="lazy">
   </picture>
   <figcaption class="figcap">Abb. 7 &mdash; Prüfung: das Belastungswerkzeug fährt die Produktions-Weckette, keine synthetische Testarbeit</figcaption>
 </figure>
