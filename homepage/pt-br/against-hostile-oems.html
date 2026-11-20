@@ -58,7 +58,7 @@
 
 <h2 id="threats">O que um ambiente hostil realmente faz</h2>
 <table>
-  <tr><th>Mecanismo</th><th>Típico em</th><th>Efeito num app de alarme ingênuo</th></tr>
+  <tr><th>Mecanismo</th><th>Típico em</th><th>Efeito num app de alarme sem proteções</th></tr>
   <tr><td>Morte ao deslizar nos recentes / forçar encerramento</td><td>Xiaomi (MIUI/HyperOS), Samsung (One&nbsp;UI)</td><td>Os alarmes agendados são apagados, sem retorno ao app</td></tr>
   <tr><td>Morte de processo em cache (&ldquo;limpador de memória&rdquo;)</td><td>Xiaomi, Oppo/ColorOS, Samsung</td><td>O processo morre sem aviso; tudo que o app planejava fazer no nível de processo é perdido</td></tr>
   <tr><td>Freezer de segundo plano / portões de autostart</td><td>Xiaomi (HyperOS/MIUI Autostart), Oppo/ColorOS (DuraSpeed)</td><td>Os alarmes podem ser entregues, mas o processo que os toca fica congelado &mdash; ou o app nunca consegue reiniciar</td></tr>
@@ -96,7 +96,7 @@
     em vez de fingir que tudo está bem.</span></div>
 </div>
 <p class="fallback-note">Se uma camada existe só para pegar a anterior falhando,
-  ela está fazendo seu trabalho &mdash; falhas, autorreparos e escaladas são registrados, não escondidos.</p>
+  ela está fazendo seu trabalho &mdash; falhas, autorreparos e escalonamentos são registrados, não escondidos.</p>
 
 <h3 id="diagrams">As camadas, em diagramas</h3>
 <p>Estes diagramas são renderizados direto da documentação de engenharia. São
@@ -248,11 +248,11 @@ não usar folha de compartilhamento.
 
 <h2 id="limits">Limitações honestas</h2>
 <ul>
-  <li><strong>Verificado num piso AOSP, não em cada aparelho.</strong> O desenho de resiliência
+  <li><strong>Verificado numa base AOSP, não em cada aparelho.</strong> O desenho de resiliência
       é testado com primitivas do projeto AOSP (mortes de processo, Doze profundo,
       buckets de standby) num AVD Pixel descartável, porque é o que dá para automatizar. Um
       emulador não replica por completo os portões Autostart da Xiaomi, o Device Care da Samsung
-      nem a aceleração de alarmes dos OEM &mdash; o comportamento em aparelhos reais é
+      nem a limitação de alarmes dos OEM &mdash; o comportamento em aparelhos reais é
       abordado por meio do guia dontkillmyapp.com, relatórios por marca e diagnósticos enviados por usuários como você.</li>
   <li><strong>Sem garantias.</strong> Os OEM agressivos mudam seu gerenciamento de energia entre
       versões de firmware. Se uma marca introduzir um novo mecanismo de morte, o app pode precisar de
@@ -269,7 +269,7 @@ não usar folha de compartilhamento.
   versões mais difíceis desse trabalho: agenda de um jeito que sobrevive à morte do processo,
   rearma o que for apagado, se autovigia com um segundo processo quando necessário e relata
   honestamente no aparelho quando algo deu errado. E a linha de privacidade é absoluta &mdash;
-  nenhuma dessa honestidade custa seus dados.</p>
+  nada dessa honestidade custa seus dados.</p>
 <p>Encontrou um aparelho onde o guia não vale? Abra
   <a href="https://github.com/peterandree/weekday-wake-app/issues">uma issue</a> e, se puder,
   anexe os diagnósticos do aparelho via a ação voluntária de compartilhamento. Esse ciclo de

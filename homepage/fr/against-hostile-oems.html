@@ -58,13 +58,13 @@
 <h2 id="threats">Ce que fait réellement un environnement hostile</h2>
 <table>
   <tr><th>Mécanisme</th><th>Typique sur</th><th>Effet sur une app d'alarme naïve</th></tr>
-  <tr><td>Suicide des apps récentes / arrêt forcé</td><td>Xiaomi (MIUI/HyperOS), Samsung (One&nbsp;UI)</td><td>Les alarmes programmées sont effacées, sans rappel vers l'app</td></tr>
+  <tr><td>Fermeture par balayage dans les apps récentes / arrêt forcé</td><td>Xiaomi (MIUI/HyperOS), Samsung (One&nbsp;UI)</td><td>Les alarmes programmées sont effacées, sans rappel vers l'app</td></tr>
   <tr><td>Mise à mort du processus en cache (&laquo; nettoyeur de mémoire &raquo;)</td><td>Xiaomi, Oppo/ColorOS, Samsung</td><td>Le processus meurt sans prévenir ; tout ce que l'app prévoyait au niveau du processus est perdu</td></tr>
-  <tr><td>Geleur d'arrière-plan / portails d'autostart</td><td>Xiaomi (HyperOS/MIUI Autostart), Oppo/ColorOS (DuraSpeed)</td><td>Les alarmes peuvent arriver, mais le processus qui les sonne est gélé &mdash; ou l'app ne peut jamais se relancer</td></tr>
+  <tr><td>Congélateur d'arrière-plan / barrières d'autostart</td><td>Xiaomi (HyperOS/MIUI Autostart), Oppo/ColorOS (DuraSpeed)</td><td>Les alarmes peuvent arriver, mais le processus qui les sonne est gelé &mdash; ou l'app ne peut jamais se relancer</td></tr>
   <tr><td>Optimisation de batterie sur « Restreint »</td><td>Android d'origine aussi, plus gestionnaires batterie OEM</td><td>Les alarmes sont retardées ou groupées ; même l'API d'alarme la plus prioritaire peut être affamée</td></tr>
   <tr><td>Doze profond / buckets d'activité faible</td><td>Tous les Android ; seuils selon l'habillage</td><td>Arrivées différées sauf si l'API d'alarme est exemptée</td></tr>
   <tr><td>Suppression de la diffusion au démarrage (Autostart)</td><td>Xiaomi/MIUI, HyperOS</td><td>Les alarmes ne sont pas re-programmées après redémarrage tant que l'utilisateur n'accorde pas Autostart</td></tr>
-  <tr><td>Sauvegarde/restauration et mises à jour de l'OS</td><td>Tous les Android</td><td>Comme le suicide d'app récente : enregistrements silencieusement perdus</td></tr>
+  <tr><td>Sauvegarde/restauration et mises à jour de l'OS</td><td>Tous les Android</td><td>Comme une fermeture par balayage dans les apps récentes : enregistrements silencieusement perdus</td></tr>
 </table>
 
 <h2 id="layers">Les couches superposées</h2>
@@ -248,10 +248,10 @@
 
 <h2 id="limits">Limites, franchement dites</h2>
 <ul>
-  <li><strong>Vérifié sur un plancher AOSP, pas sur chaque appareil.</strong> La conception
+  <li><strong>Vérifié sur une base AOSP, pas sur chaque appareil.</strong> La conception
       résiliente est testée avec des primitives AOSP (morts de processus, Doze
       profond, buckets de veille) sur un AVD Pixel jetable, parce que c'est ce qui peut
-      être automatisé. Un émulateur ne réplique pas complètement les portails Autostart de Xiaomi,
+      être automatisé. Un émulateur ne réplique pas complètement les barrières Autostart de Xiaomi,
       Device Care de Samsung, ni le bridage des alarmes par les OEM &mdash; le comportement réel est
       approché via dontkillmyapp.com, les rapports par marque et les diagnostics envoyés par des
       utilisateurs comme vous.</li>
